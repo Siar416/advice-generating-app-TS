@@ -10,7 +10,7 @@ const Advice = () => {
     });
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async (): Promise<any> => {
             const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
             setAdvice(response.data.slip)
         }
@@ -19,7 +19,7 @@ const Advice = () => {
     }, []);
 
     const handleClick = () => {
-        const fetchData = async () => {
+        const fetchData = async (): Promise<any> => {
             const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
             setAdvice(response.data.slip)
         }
