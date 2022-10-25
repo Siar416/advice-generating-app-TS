@@ -1,7 +1,9 @@
+import Advice from "./components/Advice";
+
 const App = () => {
   return (
     <div className="App">
-      Hello World!
+      <Advice />
     </div>
   );
 }
