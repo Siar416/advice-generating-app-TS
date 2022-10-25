@@ -9,22 +9,17 @@ const Advice = () => {
         advice: ""
     });
 
-    useEffect(() => {
-        const fetchData = async (): Promise<any> => {
-            const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
-            setAdvice(response.data.slip)
-        }
+    const fetchData = async (): Promise<any> => {
+        const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
+        setAdvice(response.data.slip)
+    }
 
+    useEffect(() => {
         fetchData();
     }, []);
 
-    const handleClick = () => {
-        const fetchData = async (): Promise<any> => {
-            const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
-            setAdvice(response.data.slip)
-        }
-        fetchData();
-    }
+    const handleClick = () => fetchData();
+    
 
     if(!advice) {
         return <h1>Loading advice...</h1>
