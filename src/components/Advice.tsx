@@ -4,10 +4,6 @@ import dividerImg from "../assets/pattern-divider-desktop.svg";
 import dice from "../assets/icon-dice.svg";
 
 const Advice = () => {
-
-
-
-
     const [advice, setAdvice] = useState<{id: number | null; advice: string}>({
         id: null,
         advice: ""
@@ -15,21 +11,20 @@ const Advice = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get("https://api.adviceslip.com/advice");
-            console.log(response.data.slip)
+            const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
             setAdvice(response.data.slip)
         }
 
         fetchData();
     }, []);
 
-    // const handleClick = () => {
-    //     const fetchData = async () => {
-    //         const response = await axios.get("https://api.adviceslip.com/advice");
-    //         setAdvice(response.data.slip)
-    //     }
-    //     fetchData();
-    // }
+    const handleClick = () => {
+        const fetchData = async () => {
+            const response : { data: { slip: { id: number, advice: string}} } = await axios.get("https://api.adviceslip.com/advice");
+            setAdvice(response.data.slip)
+        }
+        fetchData();
+    }
 
     if(!advice) {
         return <h1>Loading advice...</h1>
@@ -44,7 +39,7 @@ const Advice = () => {
                 <div className="divider">
                     <img src={dividerImg} alt="divider line" />
                 </div>
-                    <img className="dice" src={dice} alt="advice" />
+                    <img onClick={handleClick} className="dice" src={dice} alt="advice" />
             </div>
         </div>
     )
