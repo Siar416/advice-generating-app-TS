@@ -1,6 +1,6 @@
 import Advice from "./components/Advice";
 
-const App = () => {
+const App : React.FC = () => {
   return (
     <div className="App">
       <Advice />

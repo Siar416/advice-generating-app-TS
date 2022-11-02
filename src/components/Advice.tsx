@@ -3,7 +3,7 @@ import axios from "axios";
 import dividerImg from "../assets/pattern-divider-desktop.svg";
 import dice from "../assets/icon-dice.svg";
 
-const Advice = () => {
+const Advice : React.FC = () => {
     const [advice, setAdvice] = useState<{id: number | null; advice: string}>({
         id: null,
         advice: ""
