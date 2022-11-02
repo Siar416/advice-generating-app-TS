@@ -3,8 +3,13 @@ import axios from "axios";
 import dividerImg from "../assets/pattern-divider-desktop.svg";
 import dice from "../assets/icon-dice.svg";
 
+interface State {
+    id: number | null;
+    advice: string
+}
+
 const Advice : React.FC = () => {
-    const [advice, setAdvice] = useState<{id: number | null; advice: string}>({
+    const [advice, setAdvice] = useState<State>({
         id: null,
         advice: ""
     });
