@@ -23,7 +23,7 @@ const Advice : React.FC = () => {
         fetchData();
     }, []);
 
-    const handleClick = () => fetchData();
+    const handleClick = (): Promise<any> => fetchData();
     
 
     if(!advice) {
